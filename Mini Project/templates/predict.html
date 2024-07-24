@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Fill Details</h1>
+        <form action="/value" method="POST">
+            <label for="X1_transaction_date">Transaction Date:</label>
+            <input type="text" id="X1_transaction_date" name="X1_transaction_date" required><br><br>
+    
+            <label for="X2_house_age">House Age:</label>
+            <input type="text" id="X2_house_age" name="X2_house_age" required><br><br>
+    
+            <label for="X3_distance_to_the_nearest_MRT_station">Distance to the Nearest MRT Station:</label>
+            <input type="text" id="X3_distance_to_the_nearest_MRT_station" name="X3_distance_to_the_nearest_MRT_station" required><br><br>
+    
+            <label for="X4_number_of_convenience_stores">Number of Convenience Stores:</label>
+            <input type="text" id="X4_number_of_convenience_stores" name="X4_number_of_convenience_stores" required><br><br>
+    
+            <label for="X5_latitude">Latitude:</label>
+            <input type="text" id="X5_latitude" name="X5_latitude" required><br><br>
+
+            <label for="X6_longitude">Longitude</label>
+            <input type="text" id="X6_longitude" name="X6_longitude" required><br><br>
+
+            <input type="submit" value="submit">
+        </form>
+
+        {% if y is not none %}
+            <div class="result">
+                <h2>House Price per Unit Area:</h2>
+                <p>{{ y }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
